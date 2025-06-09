@@ -1,9 +1,9 @@
 import requests
+import os
 
-# Preencha com seus dados do UltraMsg
-instance_id = "instance124585"
-token = "ra8tip9t9dj61ipc"
-numero = "5514998780481" # Exemplo: 5511999999999 (sem o +)
+instance_id = os.environ["ULTRAMSG_INSTANCE_ID"]
+token = os.environ["ULTRAMSG_TOKEN"]
+numero = os.environ["WHATSAPP_NUMBER"]
 mensagem = "Bom dia, amor! ❤️ Tenha um dia maravilhoso!"
 
 url = f"https://api.ultramsg.com/{instance_id}/messages/chat"
@@ -14,4 +14,4 @@ payload = {
 }
 
 response = requests.post(url, data=payload)
-print(response.json()) 
+print(response.json())
