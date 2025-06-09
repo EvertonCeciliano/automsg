@@ -1,0 +1,24 @@
+name: WhatsApp Bot Daily
+
+on:
+  schedule:
+    - cron: '0 23 * * *' # 8h da manhã no Brasil (UTC-3 = 11h UTC)
+  workflow_dispatch:
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run WhatsApp bot
+        run: python bot_whatsapp_automatico.py
