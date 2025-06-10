@@ -2,7 +2,7 @@ name: WhatsApp Bot Daily
 
 on:
   schedule:
-    - cron: '30 4 * * *' # 23:10 da noite no Brasil (UTC-3 = 02:10 UTC)
+    - cron: '0 9 * * *' 
   workflow_dispatch:
 
 jobs:
